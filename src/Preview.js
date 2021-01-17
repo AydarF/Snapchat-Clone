@@ -11,6 +11,7 @@ import MusicNoteIcon from "@material-ui/icons/MusicNote";
 import AttachFileIcon from "@material-ui/icons/AttachFile";
 import CropIcon from "@material-ui/icons/Crop";
 import TimerIcon from "@material-ui/icons/Timer";
+import SendIcon from "@material-ui/icons/Send";
 
 function Preview() {
   const cameraImage = useSelector(selectCameraImage);
@@ -40,6 +41,10 @@ function Preview() {
         <TimerIcon />
       </div>
       <img src={cameraImage} alt="" />
+      <div className="preview__footer">
+        <h2>Send Now</h2>
+        <SendIcon fontSize="small" className="preview__sendIcon" />
+      </div>
     </div>
   );
 }
