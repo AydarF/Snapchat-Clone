@@ -1,5 +1,5 @@
 import { Avatar } from "@material-ui/core";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Chats.css";
 import SearchIcon from "@material-ui/icons/Search";
 import ChatBubbleIcon from "@material-ui/icons/ChatBubble";
@@ -9,27 +9,35 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "./features/appSlice";
 import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
 import { useHistory } from "react-router-dom";
+import { resetCameraImage } from "./features/cameraSlice";
 
 function Chats() {
   const [posts, setPosts] = useState([]);
+  const mountedRef = useRef(true);
   const user = useSelector(selectUser);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const history = useHistory();
 
   useEffect(() => {
     db.collection("posts")
       .orderBy("timestamp", "desc")
-      .onSnapshot((snapshot) =>
+      .onSnapshot((snapshot) => {
+        if (!mountedRef.current) return null;
         setPosts(
           snapshot.docs.map((doc) => ({
             id: doc.id,
             data: doc.data(),
           }))
-        )
-      );
+        );
+      });
+    // Performs cleanup
+    return () => {
+      mountedRef.current = false;
+    };
   }, []);
 
   const takeSnap = () => {
+    dispatch(resetCameraImage());
     history.push("/");
   };
 
