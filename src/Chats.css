@@ -57,3 +57,19 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.chats__takePicIcon {
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  background-color: #fff;
+  color: gray;
+  border-radius: 50%;
+  font-size: 40px !important;
+  transform: translate(-50%, -50%);
+}
+
+.chats__takePicIcon:hover {
+  opacity: 0.8;
+}
