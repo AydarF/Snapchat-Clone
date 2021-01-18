@@ -39,10 +39,10 @@ function Chats() {
         <Avatar
           src={user.profilePic}
           className="chats__avatar"
-          onClick={() => auth.signOut}
+          onClick={() => auth.signOut()}
         />
         <div className="chats__search">
-          <SearchIcon />
+          <SearchIcon className="chats__searchIcon" />
           <input placeholder="Friends" type="text" />
         </div>
         <ChatBubbleIcon className="chats__chatIcon" />
