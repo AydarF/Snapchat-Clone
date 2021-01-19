@@ -29,11 +29,9 @@ function ChatView() {
           strokeWidth={6}
           size={50}
           colors={[["#004777", 0.33], ["#F78801", 0.33], ["#A30000", 0.33]]}
+          onComplete={() => exit()}
         >
           {({ remainingTime }) => {
-            if (remainingTime === 0) {
-              exit();
-            }
             return remainingTime;
           }}
         </CountdownCircleTimer>
