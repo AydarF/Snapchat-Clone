@@ -20,7 +20,7 @@ function App() {
         dispatch(
           login({
             username: authUser.displayName,
-            profilePic: authUser.photoUrl,
+            profilePic: authUser.photoURL,
             id: authUser.uid,
           })
         );
