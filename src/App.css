@@ -6,3 +6,24 @@
   height: 100vh;
   background-color: #fefc01;
 }
+
+.app__logo {
+  object-fit: contain;
+  height: 100px;
+}
+
+.app__body {
+  background: url("https://www.pngkey.com/png/full/859-8598072_picture-freeuse-library-silhouette-mobile-at-getdrawings-cell.png")
+    no-repeat center;
+  background-size: contain;
+  height: 400px;
+  width: 250px;
+  padding: 74px;
+  margin-left: 1px;
+  margin-bottom: 4px;
+}
+
+.app__bodyBackground {
+  background-color: #fff;
+  height: 390px;
+}
